@@ -1,11 +1,11 @@
-<h1> ShortenedUrl <h1>
+<h1> Shorten Url <h1>
 
   <% @shortenedurl.errors.each do |attr, msg| %>
   <%= msg %> on <%= attr %>
   <% end %>
 
   <%= form_for @shortenedurl do |f| %>
-  <p><% f.label :original %> : <%= f.text_field :original %>
+  <p><%= f.label :original %> : <%= f.text_field :original %>
   </p>
   <p>
     <%= f.hidden_field :random_id, :value => @shortenedurl.random_id %>
