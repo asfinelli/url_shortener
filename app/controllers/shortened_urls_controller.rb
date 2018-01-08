@@ -16,18 +16,18 @@ class ShortenedUrlsController < ApplicationController
     @shortenedurl = ShortenedUrl.new
 
     letters = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
-    @shortenedurl.random_id = (0...8).map{ letters[rand(letters.length)] }.jion
+    @shortenedurl.random_id = (0...8).map{ letters[rand(letters.length)] }.join
   end
 
-  def shortenedurls_params
-    params.require(:shortenedurl).permit(:original_url, :random_id)
+  def shortened_urls_params
+    params.require(:shortened_url).permit(:original, :random_id)
   end
 
   def create
-    @shortenedurl = ShortenedUrl.new(shortenedurls_params)
+    @shortenedurl = ShortenedUrl.new(shortened_urls_params)
 
     if @shortenedurl.save
-      redirect_to urls_path
+      redirect_to shortened_urls_path
     else
       render "new"
     end

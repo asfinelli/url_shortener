@@ -1,7 +1,9 @@
 <h1>Urls<h1>
 
-<% @shortenedurls.each do |url|
+<% @shortenedurls.each do |shortened_url| %>
     <p>
-    <%= link_to shortenedurl.random_id, shortenedurl_path(:id => shortenedurl.random_id) %> => <%= shortenedurl.original_url %>
+    <%= link_to shortened_url.random_id, shortened_url_path(:id => shortened_url.random_id) %> => <%= shortened_url.original %>
   </p>
-  
+  <% end %>
+
+  <%= link_to "Shorten Url" , new_shortened_url_path%>
